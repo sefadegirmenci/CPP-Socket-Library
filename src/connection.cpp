@@ -85,4 +85,23 @@ extern "C"
         }
         return sockfd;
     }
+
+    int recv_msg(int sockfd, std::string *message)
+    {
+
+        /* Receiving the message from the socket */
+        char buffer[MAXBUFFERSIZE];
+        bzero(buffer, MAXBUFFERSIZE - 1);
+        long n = recv(sockfd, buffer, sizeof(buffer), 0);
+        
+        if (n < 0)
+        {
+            perror("Error reading socket in recv_msg");
+            return -1;
+        }
+        
+        buffer[n] = '\0';
+        *message = buffer;
+        return 0;
+    }
 }
