@@ -30,4 +30,17 @@ extern "C"
      * @return sockfd of new connection when successful, -1 on failure
      */
     int accept_connection(int sockfd);
+
+    /**
+     * @brief Open a SOCK_STREAM socket listening on the specified port.
+     * @return sockfd if successful, -1 on failure
+     */
+    int listen_port(int port);
+
+    /**
+     * @brief Read one message from sockfd and pass it to the parameter.
+     *        Make sure that the whole message is read. (TODO: check this)
+     * @return 0 on success, -1 on failure
+     */
+    int recv_msg(int sockfd, std::string* message);
 }
