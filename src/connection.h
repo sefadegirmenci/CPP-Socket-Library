@@ -30,4 +30,10 @@ extern "C"
      * @return sockfd of new connection when successful, -1 on failure
      */
     int accept_connection(int sockfd);
+
+    /**
+     * @brief Open a SOCK_STREAM socket listening on the specified port.
+     * @return sockfd if successful, -1 on failure
+     */
+    int listen_port(int port);
 }

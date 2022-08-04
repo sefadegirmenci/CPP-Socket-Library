@@ -47,4 +47,42 @@ extern "C"
         }
         return newsockfd;
     }
+
+    int listen_port(int port)
+    {
+        /* Creating a socket. */
+        int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+
+        if (sockfd < 0)
+        {
+            perror("Socket failed\n");
+            return -1;
+        }
+
+        /* A structure that contains the address of the server. */
+        struct sockaddr_in serv_addr; 
+
+        /* Setting the socket address. */
+        bzero((char *)&serv_addr, sizeof(serv_addr));
+        serv_addr.sin_family = AF_INET;
+        serv_addr.sin_addr.s_addr = INADDR_ANY;
+        serv_addr.sin_port = htons(port);
+        
+        /* Setting the socket options. */
+        int enable = 1;
+        if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0)
+            perror("setsockopt(SO_REUSEADDR) failed");
+        if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+        {
+            perror("Binding failed\n");
+            return -1;
+        }
+
+        /* Listening for incoming connections. */
+        if (listen(sockfd, 1) < 0)
+        {
+            return -1;
+        }
+        return sockfd;
+    }
 }
