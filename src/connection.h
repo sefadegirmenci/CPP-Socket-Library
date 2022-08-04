@@ -38,9 +38,9 @@ extern "C"
     int listen_port(int port);
 
     /**
-     * @brief Read one message from sockfd and fill the parameters.
-     *        Make sure that the whole message is read.
+     * @brief Read one message from sockfd and pass it to the parameter.
+     *        Make sure that the whole message is read. (TODO: check this)
      * @return 0 on success, -1 on failure
      */
-    int recv_msg(int sockfd, int32_t *operation_type, int64_t *argument);
+    int recv_msg(int sockfd, std::string* message);
 }
