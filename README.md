@@ -34,7 +34,7 @@ Receives a message from the socket, assigns it to the message parameter for furt
 ### TO-DO: 
 - [ ] Turn the package into a library
 - [ ] Send message over the tcp socket
-- [ ] Receive message over the tcp socket
+- [X] Receive message over the tcp socket
 - [ ] Protobuf support
 - [ ] Async IO - nonblocking accept connection and message transfer
 - [ ] Concurrency support
