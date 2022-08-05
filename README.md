@@ -31,6 +31,9 @@ Returns a socket file descriptor that is listening on the specified port.
 `recv_msg(int sockfd, std::string* message):`
 Receives a message from the socket, assigns it to the message parameter for further processing.
 
+### Contribution
+You are more than welcomed to contribute to this project. You can select one of the issues from the TODO list. Or you can come up with your own idea. 
+
 ### TO-DO: 
 - [ ] Turn the package into a library
 - [ ] Send message over the tcp socket
@@ -38,3 +41,4 @@ Receives a message from the socket, assigns it to the message parameter for furt
 - [ ] Protobuf support
 - [ ] Async IO - nonblocking accept connection and message transfer
 - [ ] Concurrency support
+- [ ] Receive message until the read_byte is less than or equal to 0. 
