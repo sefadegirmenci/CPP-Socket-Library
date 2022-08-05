@@ -1,8 +1,13 @@
-# CPP-Socket-Library
-TCP socket library for network(socket) programming in C++
+<p align="center">
+<img src="https://api.codiga.io/project/34314/status/svg">
+</img>
+</p>
+
+<h1 align="center"> CPP-Socket-Library </h1>
 
 ## Description 
 The easiest way of creating TCP sockets and implementing message transfers. Through this library you can create your own servers and clients. Bear in mind that this project is not **product-safe**. It is only for experimenting socket programming, and having a good understanding of the underlying structure of the networks. 
+
 
 ## Usage
 1. Download the repo.
