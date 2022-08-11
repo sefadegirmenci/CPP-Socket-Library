@@ -42,5 +42,12 @@ extern "C"
      *        Make sure that the whole message is read. (TODO: check this)
      * @return 0 on success, -1 on failure
      */
-    int recv_msg(int sockfd, std::string* message);
+    int recv_msg(int sockfd, std::string *message);
+
+    /**
+     * @brief Send one message to sockfd given the parameters.
+     *       
+     * @return 0 on success, -1 on failure
+     */
+    int send_msg(int sockfd, std::string message);
 }
