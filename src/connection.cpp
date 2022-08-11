@@ -104,4 +104,13 @@ extern "C"
         *message = buffer;
         return 0;
     }
+
+    int send_msg(int sockfd, std::string message)
+    {
+        /* Converting the string into a char array and then sending it. */
+        char buffer[MAXBUFFERSIZE];
+        bzero(buffer, MAXBUFFERSIZE - 1);
+        sprintf(buffer, "%s", message.c_str());
+        return send(sockfd, buffer, sizeof(buffer), MSG_NOSIGNAL);
+    }
 }
