@@ -38,11 +38,22 @@ extern "C"
     int listen_port(int port);
 
     /**
-     * @brief Read one message from sockfd and pass it to the parameter.
-     *        Make sure that the whole message is read. (TODO: check this)
-     * @return 0 on success, -1 on failure
+     * @brief Read a line from the specified socket.
+     *
+     * @param fd The socket file descriptor to read from.
+     *
+     * @return Number of bytes read
+     */ 
+    static auto read_n(int fd, char *buffer, size_t n) -> size_t;
+
+    /**
+     * @brief It reads the length of the message, then reads the message itself
+     *
+     * @param fd The file descriptor to read from
+     *
+     * @return A pair of size_t and unique_ptr<char[]>
      */
-    int recv_msg(int sockfd, std::string *message);
+    auto secure_recv(int fd) -> std::pair<size_t, std::unique_ptr<char[]>>;
 
     /**
      * @brief Send one message to sockfd given the parameters.
